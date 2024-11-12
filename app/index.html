@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Machine Learning AVC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container-main">
+        <form>
+            <div class="container-input">
+                <label>Idade</label>
+                <input type="number" placeholder="Insira sua idade..." required>
+            </div>
+            <div class="container-input">
+                <label>Possui Hipertensão?</label>
+                <select name="hipertensao">
+                    <option value="default">Selecione uma opção...</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+            <div class="container-input">
+                <label>Possui Doença Cardíaca?</label>
+                <select name="doenca-cardiaca">
+                    <option value="default">Selecione uma opção...</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+            <div class="container-input">
+                <label>Nível médio de glicose no sangue</label>
+                <input type="text" placeholder="Insira o nível médio..." required>
+            </div>
+            <div class="container-input">
+                <label>IMC - Índice de massa corporal</label>
+                <input type="text" placeholder="Insira o seu IMC..." required>
+            </div>
+            <div class="container-input">
+                <label>Em relação ao fumo:</label>
+                <select name="doenca-cardiaca">
+                    <option value="default">Selecione uma opção...</option>
+                    <option value="fumava-anteriormente">Fumava Anteriormente</option>
+                    <option value="nunca-fumou">Nunca Fumou</option>
+                    <option value="fuma-atualmente">Fuma Atualmente</option>
+                </select>
+            </div>
+            <div class="container-input">
+                <label>Já teve um AVC anteriormente?</label>
+                <select name="doenca-cardiaca">
+                    <option value="default">Selecione uma opção...</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+            <button>VERIFICAR</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<!-- Inputs -->
+<!-- 
+    Idade.
+    Hipertensão (Sim/Não).
+    Doença cardíaca (Sim/Não).
+    Nível médio de glicose no sangue.
+    IMC - Índice de massa corporal (Podemos incluir o cálculo do imc do user no sistema).
+    Fumo - Fumava anteriormente, nunca fumou, fuma.
+    Já teve um AVC ou não (Sim/Não).
+ -->
