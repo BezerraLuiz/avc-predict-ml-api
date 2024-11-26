@@ -60,3 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault(); // Previne o comportamento padrão de recarregar a página
+
+//     // Coleta os valores do formulário
+//     const healthData = {
+//         idade: parseInt(idadeInput.value, 10),
+//         possui_hipertensao: form.querySelector('input[name="possui_hipertensao"]:checked').value === 'true',
+//         possui_doenca_cardiaca: form.querySelector('input[name="possui_doenca_cardiaca"]:checked').value === 'true',
+//         nivel_glicose: parseFloat(glicoseInput.value),
+//         imc: parseFloat(imcInput.value),
+//         altura: parseFloat(alturaInput.value),
+//         peso: parseFloat(pesoInput.value),
+//         fuma: form.querySelector('input[name="fuma"]:checked').value === 'true',
+//         teve_avc: form.querySelector('input[name="teve_avc"]:checked').value === 'true'
+//     };
+
+//     // Faz a requisição para o backend
+//     fetch('http://127.0.0.1:8000/api/health-data', { // Use a URL correta do backend
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(healthData)
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Erro ao enviar os dados');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('Dados enviados com sucesso:', data);
+//         alert('Dados enviados com sucesso!');
+//         form.reset(); // Reseta o formulário após o envio
+//     })
+//     .catch(error => {
+//         console.error('Erro ao enviar os dados:', error);
+//         alert('Ocorreu um erro ao enviar os dados. Tente novamente.');
+//     });
+// });
