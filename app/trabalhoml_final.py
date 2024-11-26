@@ -9,6 +9,7 @@ Original file is located at
 **DATASET CLASSIFICAÇÃO**: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset/data <br>
 """
 
+from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import OrdinalEncoder
 import pandas as pd
 from sklearn.utils import shuffle
@@ -22,6 +23,7 @@ from sklearn.metrics import classification_report, accuracy_score, confusion_mat
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix, precision_score, recall_score, f1_score
 import seaborn as sns
 import matplotlib.pyplot as plt
+import joblib as jb
 
 dataset = pd.read_csv('healthcare-dataset-stroke-data.csv')
 
@@ -259,3 +261,31 @@ stroke_correlation_bal = correlation_matrix_balanced['stroke'].sort_values(ascen
 
 print(stroke_correlation)
 print(stroke_correlation_bal)
+
+best_model = None
+best_score = 0
+
+if grid_search_knn.best_score_ > best_score:
+    best_model = grid_search_knn.best_estimator_
+    best_score = grid_search_knn.best_score_
+
+if grid_search_dt.best_score_ > best_score:
+    best_model = grid_search_dt.best_estimator_
+    best_score = grid_search_dt.best_score_
+
+if grid_search_rf.best_score_ > best_score:
+    best_model = grid_search_rf.best_estimator_
+    best_score = grid_search_rf.best_score_
+
+if grid_search_lr.best_score_ > best_score:
+    best_model = grid_search_lr.best_estimator_
+    best_score = grid_search_lr.best_score_
+
+print(f"Melhor modelo: {best_model}")
+print(f"Melhor acurácia: {best_score}")
+
+jb.dump(best_model, 'random_forest_model.pkl')
+jb.dump(ordinal, 'ordinal_encoder.pkl')
+jb.dump(scaler_idade, 'scaler_idade.pkl')
+
+print("Modelo e pré-processadores salvos com sucesso!")
