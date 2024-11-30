@@ -1,64 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Machine Learning AVC</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="container-main">
-        <h1 class="title">Verifique seu Risco de AVC</h1>
-        <form id="avcForm">
-            <div class="container-input">
-                <label for="idade">Idade</label>
-                <input type="number" id="idade" placeholder="Insira sua idade..." required>
-                <small class="error-message" id="idadeError"></small>
-            </div>
-            <div class="container-input">
-                <label for="hipertensao">Possui Hipertensão?</label>
-                <select id="hipertensao" required>
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-            </div>
-            <div class="container-input">
-                <label for="doenca-cardiaca">Possui Doença Cardíaca?</label>
-                <select id="doenca-cardiaca" required>
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-            </div>
-            <div class="container-input">
-                <label for="glicose">Nível médio de glicose no sangue</label>
-                <input type="number" id="glicose" placeholder="Insira o nível médio..." step="0.01" required>
-            </div>
-            <div class="container-input">
-                <label for="imc">IMC - Índice de massa corporal</label>
-                <input type="number" id="imc" placeholder="Insira o seu IMC..." step="0.1" required>
-            </div>
-            <div class="container-input">
-                <label for="fumo">Em relação ao fumo:</label>
-                <select id="fumo" required>
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="fumava-anteriormente">Fumava Anteriormente</option>
-                    <option value="nunca-fumou">Nunca Fumou</option>
-                    <option value="fuma-atualmente">Fuma Atualmente</option>
-                </select>
-            </div>
-            <div class="container-input">
-                <label for="avc">Já teve um AVC anteriormente?</label>
-                <select id="avc" required>
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-            </div>
-            <button type="submit">Verificar</button>
-        </form>
+      <h1 class="title">Verifique seu Risco de AVC</h1>
+      <form id="avcForm">
+        <div class="container-input">
+          <label for="idade">Idade</label>
+          <input
+            type="number"
+            id="idade"
+            placeholder="Insira sua idade..."
+            required
+          />
+          <small class="error-message" id="idadeError"></small>
+        </div>
+        <div class="container-input">
+          <label for="hipertensao">Possui Hipertensão?</label>
+          <select id="hipertensao" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="doenca-cardiaca">Possui Doença Cardíaca?</label>
+          <select id="doenca-cardiaca" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="nivelGlicose">Nível Médio de Glicose no Sangue</label>
+          <input
+            type="number"
+            id="nivelGlicose"
+            placeholder="Insira o nível médio de glicose..."
+            step="0.1"
+            required
+          />
+          <p id="resultadoGlicose"></p>
+        </div>
+        <div class="container-input">
+          <label for="altura">Altura (em metros)</label>
+          <input
+            type="number"
+            id="altura"
+            placeholder="Insira sua altura..."
+            step="0.01"
+            required
+          />
+        </div>
+        <div class="container-input">
+          <label for="peso">Peso (em kg)</label>
+          <input
+            type="number"
+            id="peso"
+            placeholder="Insira seu peso..."
+            step="0.1"
+            required
+          />
+        </div>
+        <div class="container-input">
+          <label for="imc">IMC</label>
+          <button type="button" id="btnCalcularIMC">Calcular IMC</button>
+          <p id="resultadoIMC"></p>
+        </div>
+        <div class="container-input">
+          <label for="fumo">Em relação ao fumo:</label>
+          <select id="fumo" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="fumava-anteriormente">Fumava Anteriormente</option>
+            <option value="nunca-fumou">Nunca Fumou</option>
+            <option value="fuma-atualmente">Fuma Atualmente</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="avc">Já teve um AVC anteriormente?</label>
+          <select id="avc" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <button type="submit">Verificar</button>
+      </form>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
