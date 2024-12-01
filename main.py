@@ -49,22 +49,27 @@ def save_health_data(data: HealthData):
         "bmi_cat": data.imc,
         "avg_glucose_level_cat": data.nivel_glicose
     }
+    
+    print("Health Entry: ", health_entry)
 
     database.append(health_entry)
 
-    new_data = pd.DataFrame([health_entry])
+    dataset = pd.DataFrame([health_entry])
+    print("DataFrame Criado:\n", dataset)
 
-    categorical_columns = ["gender", "ever_married", "work_type", "Residence_type", "smoking_status"]
+    print("Tipos de Dados das Colunas: ", dataset.dtypes)
+
+    columns = ["gender", "age", "hypertension", "heart_disease", "ever_married", "work_type", "Residence_type", "smoking_status", "bmi_cat", "avg_glucose_level_cat"]
     
-    missing_columns = [col for col in categorical_columns if col not in new_data.columns]
-    if missing_columns:
-        return {"error": f"Faltando as colunas: {', '.join(missing_columns)}"}
-    
-    new_data[categorical_columns] = ordinal.transform(new_data[categorical_columns])
+    print("Transformando colunas categóricas...")
+    values_cat = ordinal.fit_transform(dataset[columns])
+    dataset[columns] = values_cat
 
-    new_data["age"] = scaler_idade.transform(new_data[["age"]])
+    print("Transformando coluna 'age'...")
+    dataset["age"] = scaler_idade.fit_transform(dataset[["age"]])
 
-    prediction = model.predict(new_data)
+    print("Realizando previsão com o modelo...")
+    prediction = model.predict(dataset)
 
     return {"message": "Dados salvos com sucesso!", "prediction": prediction[0]}
 
