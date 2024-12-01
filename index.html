@@ -24,16 +24,16 @@
           <label for="hipertensao">Possui Hipertensão?</label>
           <select id="hipertensao" required>
             <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
+            <option value="Yes">Sim</option>
+            <option value="No">Não</option>
           </select>
         </div>
         <div class="container-input">
           <label for="doenca-cardiaca">Possui Doença Cardíaca?</label>
           <select id="doenca-cardiaca" required>
             <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
+            <option value="Yes">Sim</option>
+            <option value="No">Não</option>
           </select>
         </div>
         <div class="container-input">
@@ -76,17 +76,51 @@
           <label for="fumo">Em relação ao fumo:</label>
           <select id="fumo" required>
             <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="fumava-anteriormente">Fumava Anteriormente</option>
-            <option value="nunca-fumou">Nunca Fumou</option>
-            <option value="fuma-atualmente">Fuma Atualmente</option>
+            <option value="formerly smoked">Fumava Anteriormente</option>
+            <option value="never smoked">Nunca Fumou</option>
+            <option value="smokes">Fuma Atualmente</option>
           </select>
         </div>
         <div class="container-input">
           <label for="avc">Já teve um AVC anteriormente?</label>
           <select id="avc" required>
             <option value="" disabled selected>Selecione uma opção...</option>
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
+            <option value="Yes">Sim</option>
+            <option value="No">Não</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="jaFoiCasado">Já foi casado?</label>
+          <select id="jaFoiCasado" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Yes">Sim</option>
+            <option value="No">Não</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="tipoTrabalho">Tipo do Trabalho</label>
+          <select id="tipoTrabalho" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Private">Carteira Assinada</option>
+            <option value="Self-employed">
+              Trabalhador(a) Independente
+            </option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="genero">Gênero</label>
+          <select id="genero" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Female">Feminino</option>
+            <option value="Male">Masculino</option>
+          </select>
+        </div>
+        <div class="container-input">
+          <label for="tipoResidencia">Tipo de Residência</label>
+          <select id="tipoResidencia" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Urban">Urbano</option>
+            <option value="Rural">Rural</option>
           </select>
         </div>
         <button type="submit">Verificar</button>

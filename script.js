@@ -12,11 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const pesoInput = document.getElementById("peso");
   const btnCalcularIMC = document.getElementById("btnCalcularIMC");
   const resultadoIMC = document.getElementById("resultadoIMC");
-  const resultadoFumo = document.getElementById("resultadoFumo");
+  const casadoSelect = document.getElementById("jaFoiCasado");
+  const trabalhoSelect = document.getElementById("tipoTrabalho");
+  const generoSelect = document.getElementById("genero");
+  const residenciaSelect = document.getElementById("tipoResidencia");
 
   let bmiCat;
   let nivelGlicose;
-  let nivelFumo;
 
   if (!form) {
     console.error("Formulário não encontrado.");
@@ -33,8 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         possui_doenca_cardiaca: doencaCardiacaSelect.value,
         nivel_glicose: nivelGlicose,
         imc: bmiCat,
-        fumo: nivelFumo,
+        fumo: fumoSelect.value,
         teve_avc: avcSelect.value,
+        estado_civil: casadoSelect.value,
+        tipo_trabalho: trabalhoSelect.value,
+        genero: generoSelect.value,
+        tipo_residencia: residenciaSelect.value,
       };
 
       console.log(healthData);
@@ -120,23 +126,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     resultadoIMC.textContent = `${imc} (${faixaIMC})`;
-  });
-
-  fumoSelect.addEventListener("change", () => {
-    const fumoValue = fumoSelect.value;
-
-    switch (fumoValue) {
-      case "fumava-anteriormente":
-        nivelFumo = 1;
-        break;
-      case "nunca-fumou":
-        nivelFumo = 2;
-        break;
-      case "fuma-atualmente":
-        nivelFumo = 3;
-        break;
-      default:
-        break;
-    }
   });
 });
