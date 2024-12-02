@@ -59,19 +59,25 @@ def save_health_data(data: HealthData):
 
     print("Tipos de Dados das Colunas: ", dataset.dtypes)
 
-    columns = ["gender", "age", "hypertension", "heart_disease", "ever_married", "work_type", "Residence_type", "smoking_status", "bmi_cat", "avg_glucose_level_cat"]
-    
+    columns = ["gender", "age", "hypertension", "heart_disease", "ever_married", "work_type", "Residence_type", "smoking_status"]
+
     print("Transformando colunas categóricas...")
     values_cat = ordinal.fit_transform(dataset[columns])
     dataset[columns] = values_cat
 
     print("Transformando coluna 'age'...")
     dataset["age"] = scaler_idade.fit_transform(dataset[["age"]])
+    dataset["age"] = pd.DataFrame(dataset["age"]) 
+
+    print("Tipos de dados após transformação:", dataset.dtypes)
+
 
     print("Realizando previsão com o modelo...")
     prediction = model.predict(dataset)
+    # Converte a previsão de numpy.int64 para int
+    prediction_value = int(prediction[0])
 
-    return {"message": "Dados salvos com sucesso!", "prediction": prediction[0]}
+    return {"message": "Dados salvos com sucesso!", "prediction": prediction_value}
 
 @app.get("/")
 def get_health_data():
