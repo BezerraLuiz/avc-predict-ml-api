@@ -59,8 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
           return response.json();
         })
         .then((data) => {
-          console.log("Dados enviados com sucesso:", data);
-          alert("Dados enviados com sucesso!");
+          alert(data.message);
+          
+          if (data.prediction === 0) {
+            alert("Predição: Nenhum risco de AVC identificado.");
+          } else {
+            alert("Predição: Risco de AVC identificado! Procure orientação médica.");
+          }
           form.reset();
         })
         .catch((error) => {
